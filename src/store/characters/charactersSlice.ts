@@ -6,7 +6,7 @@ const initialState: InitialStateINT = {
     loading: false,
     success: false,
     message: '',
-    data: null
+    data: []
 };
 
 const getCharacters = createAsyncThunk('characters/getCharacters', async () => {

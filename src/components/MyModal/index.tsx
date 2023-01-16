@@ -14,17 +14,12 @@ const MyModal: React.FC<MyModalProps> = ({ isOpen, handleClose, idCharacter }) =
     const dispatch = useAppDispatch();
     const character = useAppSelector((state) => state.character.data);
 
-    useEffect(() => {
-        if(idCharacter !== -1) {
+     useEffect(() => {
+         if(idCharacter !== -1) {
             dispatch(getCharacterId(idCharacter))
 
-        }
-    }, [idCharacter, dispatch]);
-
-    useEffect(() => {
-        console.log({character});
-        
-    }, [character])
+         }
+     }, [idCharacter, dispatch]);
 
     return (
         <Modal
@@ -39,46 +34,39 @@ const MyModal: React.FC<MyModalProps> = ({ isOpen, handleClose, idCharacter }) =
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: 600,
-                    height: 400,
+                    width: 700,
+                    height: 500,
                     bgcolor: '#fff',
                     boxShadow: 20,
                     borderRadius: 2,
-                    overflow: 'hidden', 
+                    overflow: 'hidden',
+                    display: 'flex' 
                 }}
             >
-                <Card sx={{ display: 'flex', width: '100%', height: '100%', justifyContent: 'space-around' }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', width: 380 }}>
-                        <CardContent sx={{ flex: '1 0 auto' }}>
-                            <Typography variant="h5">
-                               Nome: { character.name } 
-                            </Typography>
-                            <Typography variant="subtitle1" color="text.secondary" component="div">
-                                {character.films && (character.films)}
-                                {character.shortFilms && character.shortFilms}
-                                {character.tvShows && character.tvShows}
-                                {character.videoGames && character.videoGames}
-                                {character.parkAttractions && character.parkAttractions}
-                                {character.allies && character.allies}
-                                {character.enemies && character.enemies}
-                            </Typography>
-                        </CardContent>
-                        <Box sx={{ display: 'flex', alignItems: 'center'}}>
-                            <Button variant="contained" color="error">
-                              teste
-                            </Button>
-                        </Box>
-                    </Box>
-                    <CardMedia
-                        component="img"
-                        sx={{ width: 250, height: 400, p: 1 }}
-                        image={character.imageUrl}
-                        alt={character.name}
-                    />
-                </Card>
+                <Box sx={{
+                    width: '55%',
+                    height: '100%',
+                    bgcolor: '#707070',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Typography variant="h5" color="initial">Nome <Typography variant="body1" color="initial">{ character && character.name }</Typography> </Typography>
+                    <Typography variant="body1" color="initial">  </Typography>
+                </Box>
+
+                <Box sx={{
+                    width: '45%',
+                    height: '100%',
+                    backgroundImage: `url(${character && character.imageUrl})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover'
+                }}/>
             </Box>
         </Modal>
     );
 };
 
 export default MyModal;
+
+
