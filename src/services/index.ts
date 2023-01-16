@@ -9,7 +9,7 @@ const apiGET = async (route :string) => {
         const returnAPI: ResponseAPI = {
             success: response.data.success ? response.data.success : true,
             message: response.data.message ? response.data.message : 'Buscado com sucesso.',
-            data: response.data.data
+            data: response.data
         }
 
         return returnAPI;
@@ -18,7 +18,7 @@ const apiGET = async (route :string) => {
         const returnAPIError: ResponseAPI = {
             success: error.response.data.success ? error.response.data.success : false,
             message: error.response.data.message ? error.response.data.message : 'Falha ao buscar.',
-            data: error.response.data.data
+            data: error.response.data
         }
 
         return returnAPIError;

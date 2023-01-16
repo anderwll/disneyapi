@@ -8,12 +8,13 @@ import { CardActionArea } from '@mui/material';
 
 interface MyCardProps {
     imgUrl: string,
-    name: string
+    name: string,
+    onClickCard: (e: any) => void
 }
 
-const MyCard: React.FC<MyCardProps> = ({ imgUrl, name }) => {
+const MyCard: React.FC<MyCardProps> = ({ imgUrl, name, onClickCard }) => {
     return (
-        <Card sx={{ maxWidth: 400, width: 250 }}>
+        <Card sx={{ maxWidth: 400, width: 250 }} onClick={onClickCard}>
             <CardActionArea>
                 <CardMedia
                     component="img"
