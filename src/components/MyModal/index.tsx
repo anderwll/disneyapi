@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Button, Card, CardContent, CardMedia, Modal, Typography } from '@mui/material';
+import { Box, Modal, Typography } from '@mui/material';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getCharacterId } from '../../store/character/characterSlice';
@@ -39,20 +39,27 @@ const MyModal: React.FC<MyModalProps> = ({ isOpen, handleClose, idCharacter }) =
                     bgcolor: '#fff',
                     boxShadow: 20,
                     borderRadius: 2,
-                    overflow: 'hidden',
+                    overflow: 'auto',
                     display: 'flex' 
                 }}
             >
                 <Box sx={{
                     width: '55%',
                     height: '100%',
-                    bgcolor: '#707070',
+                    bgcolor: 'rgb(112,112,112)',
                     display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
+                    flexDirection: 'column',
+                    overflow: 'auto', 
+                    p: 2
                 }}>
-                    <Typography variant="h5" color="initial">Nome <Typography variant="body1" color="initial">{ character && character.name }</Typography> </Typography>
-                    <Typography variant="body1" color="initial">  </Typography>
+                    <Typography variant="h5" color="initial">Name:<Typography variant="body1" color="#333" sx={{ml: 4, mb: 2}}>{ character && character.name }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Films:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.films }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Short films:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.shortFilms }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Tv shows:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.tvShows }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Video games:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.videoGames }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Park attractions:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.parkAttractions }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Allies:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.allies }</Typography></Typography>
+                    <Typography variant="h5" color="initial">Enemies:  <Typography variant="body1" color="#333" sx={{ml: 4,  mb: 2}}>{ character && character.enemies  }</Typography></Typography>
                 </Box>
 
                 <Box sx={{

@@ -21,9 +21,10 @@ const MyCard: React.FC<MyCardProps> = ({ imgUrl, onClickCard }) => {
                 justifyContent: 'center',
                 alignItems: 'end',
                 p: 2,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                background: ':hover: red'
             }}>
-            <Typography variant="h5" color="#333">Saiba mais...</Typography>
+            <Typography variant="h5" color="#333">Know more...</Typography>
         </Paper>
     );
 };

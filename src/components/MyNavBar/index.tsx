@@ -6,30 +6,36 @@ import { TextField } from '@mui/material'
 
 interface MyNavBarPros {
     value?: string,
-    handleChange?: (e: any) => void
+    handleChange?: (e: any) => void,
+    isScroll: boolean
 }
 
 
-const MyNavBar: React.FC<MyNavBarPros>  = ({ value, handleChange }) => {
+const MyNavBar: React.FC<MyNavBarPros>  = ({ value, handleChange, isScroll }) => {
+
+    const handleClick = () => {
+        alert('In production... 🥱⏳');
+    }
+
     return (
         <SectionNav>
             <DivLogo>
-                <img src="./images/logo2.png" alt="Disney logo" style={{width: '15rem'}} />
+                <img src="./images/logo2.png" alt="Disney logo" />
             </DivLogo>
 
-            <DivButtons>
+            <DivButtons isScroll={isScroll}>
                <TextField
-                 label="Pesquisar..."
+                 label="Search..."
                  value={value}
                  onChange={handleChange}
                  color='primary'
-                 sx={{mr: 2, mt: 1.6, width: 400}}
+                 sx={{mr: 2, mt: 1.6}}
                  size='small'
                />
-               <Button variant="text" color="inherit">
+               <Button variant="text" color="inherit" onClick={handleClick}>
                  <Notifications sx={{fontSize: '1.7rem'}}/>
                </Button>
-               <Button variant="text" color="inherit">
+               <Button variant="text" color="inherit" onClick={handleClick}>
                     <Menu sx={{fontSize: '1.7rem'}}/>
                </Button>
             </DivButtons>

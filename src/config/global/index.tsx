@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Pacifico', cursive !important;
     }
 
     html {
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         width: 100vw;
         overflow-x: hidden !important;
-        background-color: #2e2e2e2e;
+        background: radial-gradient(circle, rgba(112,112,112,0.7783251231527093) 29%, rgba(72,76,136,1) 100%);
     } 
 
     body::-webkit-scrollbar {
